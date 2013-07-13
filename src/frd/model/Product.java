@@ -3,34 +3,43 @@ package frd.model;
 import java.util.List;
 
 public class Product {
-	private String name;
-	private String description;
-	private List<Lot> lots;
+	private int id;
+	private String productname;
+	private String productdescription;
+	private List<Lot> productlots;
 	
 	public Product(){}
 
-	public String getName() {
-		return name;
+	public int getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getProductname() {
+		return productname;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setProductname(String productname) {
+		this.productname = productname;
 	}
 
-	public List<Lot> getLots() {
-		return lots;
+	public String getProductdescription() {
+		return productdescription;
 	}
 
-	public void setLots(List<Lot> lots) {
-		this.lots = lots;
+	public void setProductdescription(String productdescription) {
+		this.productdescription = productdescription;
+	}
+
+	public List<Lot> getProductlots() {
+		return productlots;
+	}
+
+	public void setProductlots(List<Lot> productlots) {
+		this.productlots = productlots;
 	}
 	
 }
