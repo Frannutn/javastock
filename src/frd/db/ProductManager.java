@@ -13,11 +13,11 @@ import java.util.List;
 import frd.model.Product;
 
 public class ProductManager extends JDBCManager {
-	public static void createDbUserTable() throws SQLException {
+	public static void createDbProductTable() throws SQLException {
 		String createTableSQL = "CREATE TABLE DBPRODUCT("
 				+ "PRODUCT_ID NUMERIC(5) NOT NULL, "
 				+ "PRODUCTNAME VARCHAR(20) NOT NULL, "
-				+ "PRODUCTDESCRIPTION VARCHAR(200) NOT NULL, "
+				+ "PRODUCTDESCRIPTION VARCHAR(200) NOT NULL "
 				+ ")";
 
 		execute( createTableSQL );
