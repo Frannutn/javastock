@@ -61,8 +61,8 @@ public class MovementManager extends JDBCManager {
 			if( register.containsKey("description") )
 				mov.setDescription((String) register.get("description") );
 			
-			if( register.containsKey("amount") )
-				mov.setAmount((int) register.get("amount") );
+			//if( register.containsKey("amount") )
+			//	mov.setAmount((int) register.get("amount") );
 			
 			if( register.containsKey("date") )
 				mov.setDate((Date) register.get("date") );
