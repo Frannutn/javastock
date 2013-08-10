@@ -22,8 +22,8 @@ public class JDBCManager {
 	//private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
 	//private static final String DB_CONNECTION = "jdbc:mysql://127.0.0.1:5432/dbname";
 	
-	private static final String DB_USER = "postgres";
-	private static final String DB_PASSWORD = "postgres";//"admin";
+	private static final String DB_USER = "root"; //"postgres";
+	private static final String DB_PASSWORD = "toor"; //"postgres";//"admin";
 	
 	protected static final DateFormat dateFormat = new SimpleDateFormat( "yyyy/MM/dd HH:mm:ss" );
 

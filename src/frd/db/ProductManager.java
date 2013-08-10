@@ -34,7 +34,7 @@ public class ProductManager extends JDBCManager {
 	public static void updateProduct(int productId, String productname, String productdescription) throws SQLException{
 		String updateTableSQL = "UPDATE DBPRODUCT"
 			+ " SET PRODUCTNAME = '"+productname+"' "
-			+ " SET PRODUCTDESCRIPTION = '"+productdescription+"' "
+			+ " ,PRODUCTDESCRIPTION = '"+productdescription+"' "
 			+ " WHERE PRODUCT_ID = "+productId;
 		
 		execute( updateTableSQL );
