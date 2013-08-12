@@ -15,54 +15,63 @@ import frd.model.Movement;
 public class MovementManager extends JDBCManager {
 	public static void createDbMovementTable() throws SQLException {
 		String createTableSQL = "CREATE TABLE DBMOVEMENT("
-				+ "USER_ID NUMERIC(5) NOT NULL, "
-				+ "LOT_ID NUMERIC(5) NOT NULL"
-				+ "MOVEMENT_ID NUMERIC(5) NOT NULL"
-				+ "DESCRIPTION VARCHAR(200)"
+				+ "LOT_ID NUMERIC(5) NOT NULL, "
+				+ "MOVEMENT_ID NUMERIC(5) NOT NULL, "
+				+ "USERNAME VARCHAR(20) NOT NULL, "
 				+ "DATE DATE NOT NULL, "
-				+ "AMOUNT NUMERIC(3) NOT NULL" + "PRIMARY KEY (USER_ID) "
+				+ "AMOUNT NUMERIC(3) NOT NULL, " + "PRIMARY KEY (MOVEMENT_ID) "
 				+ ")";
 
 		execute( createTableSQL );
 	}
-	
-	public static void insertMovement(int userId,int lotId, int movementId, String description, Date date, int amount) throws SQLException{
+
+	public static void insertMovement(int movementId, int lotId, String username , Date date, int amount) throws SQLException{
 		String insertTableSQL = "INSERT INTO DBMOVEMENT"
-			+ "(USER_ID, DESCRIPTION, DATE) " + "VALUES"
-			+ "("+userId+",'"+lotId+"','"+movementId+"', '"+description+"', " + "to_date('"
-			+ dateFormat.format(date.getTime()) + "', 'yyyy/mm/dd hh24:mi:ss'), '"+amount+"')" ;
+			+ "(LOT_ID, MOVEMENT_ID, USERNAME, DATE, AMOUNT) " + "VALUES"		
+			+ "("+lotId+","+movementId+",'"+username+"', " + "to_date('"
+			+ dateFormat.format(date.getTime()) + "', 'yyyy/mm/dd hh24:mi:ss'), "+amount+")" ;
 		
 		executeUpdate( insertTableSQL );
 	}
- 	public static void deleteMovement(int movementId) throws SQLException{
+	
+	public static void updateMovement(int movementId, String user , int amount) throws SQLException{
+		String updateTableSQL = "UPDATE DBMOVEMENT"
+			+ " SET USERNAME = '"+user+"' "
+			+ " ,AMOUNT = "+amount+" "
+			+ " WHERE MOVEMENT_ID = "+movementId;
+		
+		execute( updateTableSQL );
+	}
+ 	
+	public static void deleteMovement(int movementId) throws SQLException{
 		String deleteTableSQL = "DELETE FROM DBMOVEMENT WHERE MOVEMENT_ID = "+movementId;
 		
 		execute( deleteTableSQL );
 	}
-	
+	public static void  delAll() throws SQLException{
+		String deleteAllTableSQL = "DELETE FROM DBMOVEMENT";
+		
+		execute( deleteAllTableSQL );
+	}
 	public static List<Movement> getMovements() throws SQLException{
 		List<Movement> result = new ArrayList<Movement>();
 		
 		String selectTableSQL = "SELECT * from DBMOVEMENT";
 		
 		for( HashMap<String,Object> register : executeQuery( selectTableSQL ) ){
-			//Creo el usuario a partir de los datos obtenidos de la base
 			Movement mov = new Movement();
 
 			if( register.containsKey("movement_id") )
 				mov.setId( ((BigDecimal) register.get("movement_id")).intValue() );
 			
-			if( register.containsKey("user_id") )
-				mov.setUser( ((BigDecimal) register.get("user_id")).intValue() );
-			
+			if( register.containsKey("username") )
+				mov.setUsername((String) register.get("username"));
+
 			if( register.containsKey("lot_id") )
 				mov.setLot (((BigDecimal) register.get("lot_id") ).intValue() );
 			
-			if( register.containsKey("description") )
-				mov.setDescription((String) register.get("description") );
-			
-			//if( register.containsKey("amount") )
-			//	mov.setAmount((int) register.get("amount") );
+			if( register.containsKey("amount") )
+				mov.setAmount(((BigDecimal) register.get("amount")).intValue() );
 			
 			if( register.containsKey("date") )
 				mov.setDate((Date) register.get("date") );

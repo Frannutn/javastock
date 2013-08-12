@@ -4,28 +4,19 @@ import java.util.Date;
 
 public class Movement {
 	private int id;
-	private int user;
 	private int lot;
+	private String username;
 	private Date date;
 	private int amount;
-	private String description;
 	
 	public Movement(){}
 
-	public int getId() {
-		return id;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getUser() {
-		return user;
-	}
-
-	public void setUser(int user) {
-		this.user = user;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public int getLot() {
@@ -52,12 +43,11 @@ public class Movement {
 		this.amount = amount;
 	}
 
-	public String getDescription() {
-		return description;
+	public int getId() {
+		return id;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setId(int id) {
+		this.id = id;
 	}
-
 }
