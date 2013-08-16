@@ -1,4 +1,4 @@
-package frd.app;
+package frd.app; 
 
 import java.util.Scanner;
 
