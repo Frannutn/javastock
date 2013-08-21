@@ -1,7 +1,7 @@
 package frd.app;
 
 import java.sql.SQLException;
-import java.util.Date;
+//import java.util.Date;
 import java.util.Scanner;
 
 import frd.db.ProductManager;

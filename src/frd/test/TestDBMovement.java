@@ -42,6 +42,6 @@ public class TestDBMovement {
 		}catch(SQLException ex){
 			System.err.println( "ERROR: " + ex.getLocalizedMessage() );
 		}
-		System.out.println("*********** Fin TEST DBPRODUCT ***********");
+		System.out.println("*********** Fin TEST DBMOVEMENT ***********");
 	}
 }

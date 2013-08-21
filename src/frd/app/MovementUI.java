@@ -5,9 +5,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 import frd.db.MovementManager;
-import frd.db.ProductManager;
 import frd.model.Movement;
-import frd.model.Product;
+
 
 public class MovementUI {
 

@@ -1,13 +1,13 @@
 package frd.db;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.sql.ResultSet;
+//import java.math.BigInteger;
+//import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
+//import java.util.HashSet;
 import java.util.List;
 
 import frd.model.Movement;
@@ -56,7 +56,7 @@ public class MovementManager extends JDBCManager {
 	public static List<Movement> getMovements() throws SQLException{
 		List<Movement> result = new ArrayList<Movement>();
 		
-		String selectTableSQL = "SELECT * from DBMOVEMENT";
+		String selectTableSQL = "SELECT * from DBMOVEMENT ORDER BY movement_id";
 		
 		for( HashMap<String,Object> register : executeQuery( selectTableSQL ) ){
 			Movement mov = new Movement();

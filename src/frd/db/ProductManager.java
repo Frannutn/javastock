@@ -1,13 +1,13 @@
 package frd.db;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.sql.ResultSet;
+//import java.math.BigInteger;
+//import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+//import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
+//import java.util.HashSet;
 import java.util.List;
 
 import frd.model.Product;
@@ -51,7 +51,7 @@ public class ProductManager extends JDBCManager {
 	public static List<Product> getProduct() throws SQLException{
 		List<Product> result = new ArrayList<Product>();
 		
-		String selectTableSQL = "SELECT * from DBPRODUCT";
+		String selectTableSQL = "SELECT * from DBPRODUCT ORDER BY product_id";
 		
 		for( HashMap<String,Object> register : executeQuery( selectTableSQL ) ){
 			//Creo el producto a partir de los datos obtenidos de la base

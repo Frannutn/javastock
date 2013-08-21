@@ -1,13 +1,13 @@
 package frd.db;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.sql.ResultSet;
+//import java.math.BigInteger;
+//import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
+//import java.util.HashSet;
 import java.util.List;
 
 import frd.model.User;
@@ -51,7 +51,7 @@ public class UserManager extends JDBCManager {
 	public static List<User> getUsers() throws SQLException{
 		List<User> result = new ArrayList<User>();
 		
-		String selectTableSQL = "SELECT * from DBUSER";
+		String selectTableSQL = "SELECT * from DBUSER ORDER BY user_id";
 		
 		for( HashMap<String,Object> register : executeQuery( selectTableSQL ) ){
 			//Creo el usuario a partir de los datos obtenidos de la base
